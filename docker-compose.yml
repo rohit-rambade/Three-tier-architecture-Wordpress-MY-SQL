@@ -14,4 +14,21 @@ services:
     - MYSQL_USER=rohit
     - MYSQL_PASSWORD=root@121
 
- 
+  wp:
+    depends_on:
+    - db
+    image: wordpress:latest
+    container_name: mywp1
+    networks: 
+    - mynetwork
+    ports: 
+    - 8080:80
+    environment:
+    - WORDPRESS_DB_HOST=mydb
+    - WORDPRESS_DB_USER=rohit
+    - WORDPRESS_DB_PASSWORD=rohit@121
+    - WORDPRESS_DB_NAME=blogdb
+
+networks:
+  mynetwork:
+    driver: bridge
