@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mydb
+    networks: 
+    - mynetwork
+    volumes: 
+    - /data:/var/lib/mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=root@121
+    - MYSQL_DATABASE=blogdb
+    - MYSQL_USER=rohit
+    - MYSQL_PASSWORD=root@121
+
+ 
